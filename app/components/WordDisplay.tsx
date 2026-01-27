@@ -3,7 +3,6 @@
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
 import { useSearchParams } from "next/navigation";
-import { connection } from "next/server";
 import { useEffect, useState } from "react";
 
 const WordDisplay = () => {
@@ -18,7 +17,7 @@ const WordDisplay = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = `http://localhost:3000?text=${word}`;
+    window.location.href = `${window.location}${word}`;
   };
 
   useEffect(() => {
