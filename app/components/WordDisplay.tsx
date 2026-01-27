@@ -17,7 +17,7 @@ const WordDisplay = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = `${window.location}${word}`;
+    window.location.href = `${window.location.href}${word}`;
   };
 
   useEffect(() => {
