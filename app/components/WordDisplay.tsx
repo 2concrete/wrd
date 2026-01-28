@@ -17,7 +17,8 @@ const WordDisplay = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
-      window.location.href = `https://wrd-hazel.vercel.app/?text=${word}`;
+      const url = window.location.origin;
+      window.location.href = `${url}?text=${word}`;
     }
   };
 

@@ -16,6 +16,7 @@ export const logParam = mutation({
     if (!existing) {
       const newParam = await ctx.db.insert("params", {
         param: args.param,
+        last_used: new Date().getTime(),
         used: 1,
       });
       return newParam;
