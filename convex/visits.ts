@@ -10,7 +10,10 @@ export const logParam = mutation({
       .first();
 
     if (existing) {
-      await ctx.db.patch(existing._id, { used: existing.used + 1 });
+      await ctx.db.patch(existing._id, {
+        used: existing.used + 1,
+        last_used: new Date().getTime(),
+      });
     }
 
     if (!existing) {
