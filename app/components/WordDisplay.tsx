@@ -3,7 +3,7 @@
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WordDisplay = () => {
   const [word, setWord] = useState<string>("");
@@ -11,13 +11,14 @@ const WordDisplay = () => {
   const textDisplay = params.get("text");
   const logParam = useMutation(api.visits.logParam);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setWord(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    window.location.href = `${window.location.href}?text=${word}`;
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      window.location.href = `https://wrd-hazel.vercel.app/?text=${word}`;
+    }
   };
 
   useEffect(() => {
@@ -27,16 +28,17 @@ const WordDisplay = () => {
   }, [textDisplay, logParam]);
 
   return (
-    <div className="flex justify-center items-center">
+    <div>
       <div>
         <main>
-          <div className="text-2xl font-[Inter] flex items-center justify-center min-h-screen">
-            <form onSubmit={handleSubmit}>
-              <input
+          <div className="text-2xl font-[Inter]">
+            <form className="flex justify-center items-center min-h-screen">
+              <textarea
                 onChange={handleChange}
                 placeholder={textDisplay ? textDisplay : "enter wrds"}
-                className="outline-none w-30 placeholder-white"
+                className="resize-none field-sizing-content outline-none h-screen w-31 placeholder-white translate-y-1/2"
                 value={word}
+                onKeyDown={handleKeyDown}
               />
             </form>
           </div>
