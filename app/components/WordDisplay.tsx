@@ -30,23 +30,21 @@ const WordDisplay = () => {
 
   return (
     <div>
-      <div>
-        <main>
-          <div className="text-2xl font-[Inter]">
-            <form className="flex justify-center items-center min-h-screen">
-              <textarea
-                onChange={handleChange}
-                placeholder={
-                  textDisplay ? textDisplay : "enter wrds and press enter"
-                }
-                className="resize-none field-sizing-content outline-none h-screen max-w-45 text-center placeholder-white translate-y-1/2"
-                value={word}
-                onKeyDown={handleKeyDown}
-              />
-            </form>
-          </div>
-        </main>
-      </div>
+      <main>
+        <div className="text-2xl font-[Inter]">
+          <form className="flex justify-center items-center min-h-screen">
+            <textarea
+              onChange={handleChange}
+              placeholder={
+                textDisplay ? textDisplay : "enter wrds and press enter"
+              }
+              className="text-white resize-none field-sizing-content outline-none h-screen max-w-45 text-center placeholder-white translate-y-1/2"
+              value={word}
+              onKeyDown={handleKeyDown}
+            />
+          </form>
+        </div>
+      </main>
     </div>
   );
 };
