@@ -20,7 +20,7 @@ const Home = () => {
             pillarRotation={25}
             interactive={false}
             mixBlendMode="screen"
-            quality="high"
+            quality="medium"
           />
           <WordDisplay />
         </>
