@@ -38,7 +38,7 @@ const WordDisplay = () => {
               placeholder={
                 textDisplay ? textDisplay : "enter wrds and press enter"
               }
-              className="text-white resize-none field-sizing-content outline-none h-screen max-w-45 text-center placeholder-white translate-y-1/2"
+              className="text-white resize-none field-sizing-content outline-none max-w-45 h-80 text-center placeholder-white translate-y-1/2"
               value={word}
               onKeyDown={handleKeyDown}
             />
