@@ -35,6 +35,7 @@ const WordDisplay = () => {
           <form className="flex justify-center items-center min-h-screen">
             <textarea
               onChange={handleChange}
+              autoCorrect="off"
               placeholder={
                 textDisplay ? textDisplay : "enter wrds and press enter"
               }
